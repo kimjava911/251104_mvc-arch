@@ -6,13 +6,15 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.mvc.model.entity.Pet;
+import org.example.mvc.model.repository.InMemoryPetRepository;
 import org.example.mvc.model.repository.PetRepository;
 
 import java.io.IOException;
 
 @WebServlet("/pet") // pet이라는 경로에 대응
 public class PetController extends HttpServlet {
-    private final PetRepository petRepository = new PetRepository();
+//    private final InMemoryPetRepository petRepository = new InMemoryPetRepository();
+    private final PetRepository petRepository = new InMemoryPetRepository();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
